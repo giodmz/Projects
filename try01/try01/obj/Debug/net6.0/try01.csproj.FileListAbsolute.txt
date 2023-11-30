@@ -1,0 +1,5 @@
+E:\C#\try01\try01\obj\Debug\net6.0\try01.csproj.AssemblyReference.cache
+E:\C#\try01\try01\obj\Debug\net6.0\try01.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\try01\try01\obj\Debug\net6.0\try01.AssemblyInfoInputs.cache
+E:\C#\try01\try01\obj\Debug\net6.0\try01.AssemblyInfo.cs
+E:\C#\try01\try01\obj\Debug\net6.0\try01.csproj.CoreCompileInputs.cache
