@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>bytebank_GeradorChavePix</name>
+    </assembly>
+    <members>
+        <member name="T:bytebank_GeradorChavePix.GeradorPix">
+            <summary>
+             Pix usando Guid.
+            </summary>
+        </member>
+        <member name="M:bytebank_GeradorChavePix.GeradorPix.GetChavePix">
+            <summary>
+            Método chave PIX
+            </summary>
+            <returns>Retorna uma chave aleatória de PIX</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:bytebank_GeradorChavePix.GeradorPix.GetChavesPix(System.Int32)" -->
+    </members>
+</doc>

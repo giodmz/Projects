@@ -9,3 +9,5 @@ E:\Projects\bytebank_GeradorChavePix\bytebank_GeradorChavePix\obj\Debug\net6.0\b
 E:\Projects\bytebank_GeradorChavePix\bytebank_GeradorChavePix\obj\Debug\net6.0\refint\bytebank_GeradorChavePix.dll
 E:\Projects\bytebank_GeradorChavePix\bytebank_GeradorChavePix\obj\Debug\net6.0\bytebank_GeradorChavePix.pdb
 E:\Projects\bytebank_GeradorChavePix\bytebank_GeradorChavePix\obj\Debug\net6.0\ref\bytebank_GeradorChavePix.dll
+E:\Projects\bytebank_GeradorChavePix\bytebank_GeradorChavePix\bin\Debug\net6.0\bytebank_GeradorChavePix.xml
+E:\Projects\bytebank_GeradorChavePix\bytebank_GeradorChavePix\obj\Debug\net6.0\bytebank_GeradorChavePix.xml
