@@ -4,6 +4,8 @@ namespace MoviesAPI.Controllers.Models
 {
     public class Movie
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "O título do filme é obrigatório.")]
         public string Title { get; set; }
 
@@ -16,8 +18,5 @@ namespace MoviesAPI.Controllers.Models
         [Required(ErrorMessage = "A duração do filme é obrigatório.")]
         [Range(70, 600, ErrorMessage = "A duração do filme deve ser entre 70 e 600 minutos")]
         public int Duration { get; set; }
-
-
-
     }
 }
