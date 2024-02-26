@@ -2,7 +2,7 @@
 
 namespace MoviesAPI.Data.DTOs;
 
-public class CreateMovieDto
+public class UpdateMovieDto
 {
     [Required(ErrorMessage = "O título do filme é obrigatório.")]
     public string Title { get; set; }
