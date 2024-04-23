@@ -2,16 +2,11 @@
 using bytebank_ATENDIMENTO.bytebank.Atendimento;
 using bytebank_GeradorChavePix;
 
-Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
-//new ByteBankAtendimento().AtendimentoCliente();
-
-
-Console.WriteLine(GeradorPix.GetChavePix());
-
-var listaDeChaves = GeradorPix.GetChavesPix(10);
-
-foreach (var chave in listaDeChaves)
+internal class Program
 {
-    Console.WriteLine(chave);
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
+        new ByteBankAtendimento().AtendimentoCliente();
+    }
 }
-

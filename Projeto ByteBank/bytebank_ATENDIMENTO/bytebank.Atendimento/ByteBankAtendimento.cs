@@ -4,8 +4,7 @@ using Newtonsoft.Json;
 
 namespace bytebank_ATENDIMENTO.bytebank.Atendimento
 {
-    #nullable disable
-    internal  class ByteBankAtendimento
+    public  class ByteBankAtendimento
     {
 
         private List<ContaCorrente> _listaDeContas = new List<ContaCorrente>(){
