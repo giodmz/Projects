@@ -1,0 +1,14 @@
+E:\C#\Teste002\Teste002\bin\Debug\net6.0\Teste002.exe
+E:\C#\Teste002\Teste002\bin\Debug\net6.0\Teste002.deps.json
+E:\C#\Teste002\Teste002\bin\Debug\net6.0\Teste002.runtimeconfig.json
+E:\C#\Teste002\Teste002\bin\Debug\net6.0\Teste002.dll
+E:\C#\Teste002\Teste002\bin\Debug\net6.0\Teste002.pdb
+E:\C#\Teste002\Teste002\obj\Debug\net6.0\Teste002.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\Teste002\Teste002\obj\Debug\net6.0\Teste002.AssemblyInfoInputs.cache
+E:\C#\Teste002\Teste002\obj\Debug\net6.0\Teste002.AssemblyInfo.cs
+E:\C#\Teste002\Teste002\obj\Debug\net6.0\Teste002.csproj.CoreCompileInputs.cache
+E:\C#\Teste002\Teste002\obj\Debug\net6.0\Teste002.dll
+E:\C#\Teste002\Teste002\obj\Debug\net6.0\refint\Teste002.dll
+E:\C#\Teste002\Teste002\obj\Debug\net6.0\Teste002.pdb
+E:\C#\Teste002\Teste002\obj\Debug\net6.0\Teste002.genruntimeconfig.cache
+E:\C#\Teste002\Teste002\obj\Debug\net6.0\ref\Teste002.dll

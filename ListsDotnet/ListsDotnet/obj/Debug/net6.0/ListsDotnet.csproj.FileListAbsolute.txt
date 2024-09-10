@@ -1,0 +1,14 @@
+E:\C#\ListsDotnet\ListsDotnet\bin\Debug\net6.0\ListsDotnet.exe
+E:\C#\ListsDotnet\ListsDotnet\bin\Debug\net6.0\ListsDotnet.deps.json
+E:\C#\ListsDotnet\ListsDotnet\bin\Debug\net6.0\ListsDotnet.runtimeconfig.json
+E:\C#\ListsDotnet\ListsDotnet\bin\Debug\net6.0\ListsDotnet.dll
+E:\C#\ListsDotnet\ListsDotnet\bin\Debug\net6.0\ListsDotnet.pdb
+E:\C#\ListsDotnet\ListsDotnet\obj\Debug\net6.0\ListsDotnet.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\ListsDotnet\ListsDotnet\obj\Debug\net6.0\ListsDotnet.AssemblyInfoInputs.cache
+E:\C#\ListsDotnet\ListsDotnet\obj\Debug\net6.0\ListsDotnet.AssemblyInfo.cs
+E:\C#\ListsDotnet\ListsDotnet\obj\Debug\net6.0\ListsDotnet.csproj.CoreCompileInputs.cache
+E:\C#\ListsDotnet\ListsDotnet\obj\Debug\net6.0\ListsDotnet.dll
+E:\C#\ListsDotnet\ListsDotnet\obj\Debug\net6.0\refint\ListsDotnet.dll
+E:\C#\ListsDotnet\ListsDotnet\obj\Debug\net6.0\ListsDotnet.pdb
+E:\C#\ListsDotnet\ListsDotnet\obj\Debug\net6.0\ListsDotnet.genruntimeconfig.cache
+E:\C#\ListsDotnet\ListsDotnet\obj\Debug\net6.0\ref\ListsDotnet.dll
