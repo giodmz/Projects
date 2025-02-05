@@ -6,10 +6,10 @@ public class Client {
     private int accountId;
     private double cash;
     
-    public Client(String name, double cash, int accountId) {
+    public Client(String name, int accountId, double inicialCash) {
         this.name = name;
-        this.cash = cash;
         this.accountId = accountId;
+        deposit(inicialCash);
     }
 
     public Client(String name, int accountId){
@@ -29,10 +29,6 @@ public class Client {
         return cash;
     }
 
-    public void setCash(double cash) {
-        this.cash = cash;
-    }
-
     public int getAccountId() {
         return accountId;
     }
@@ -50,7 +46,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client [name=" + name + ", accountId=" + accountId + ", cash=" + cash + "]";
+        return "Client name: " + name + ", Account Number: " + accountId + ", Balance: $" + cash;
     }
 
     
