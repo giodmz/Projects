@@ -12,6 +12,8 @@ public class App {
         System.out.println("2 - Media Vetores");
         System.out.println("3 - Alturas");
         System.out.println("4 - Pensionato");
+        System.out.println("5 - Números pares");
+        System.out.println("6 - Aprovados");
         int input = sc.nextInt();
         switch (input) {
             case 1:
@@ -25,6 +27,12 @@ public class App {
                 break;
             case 4:
                 Pensionato();
+                break;
+            case 5:
+                NumerosPares();
+                break;
+            case 6:
+                Aprovados();
                 break;
 
             default: System.out.println("Tente um número válido");
@@ -141,6 +149,7 @@ public class App {
     }
 
     public static void Pensionato(){
+        
         Scanner sc = new Scanner(System.in);
         System.out.println("Quantos estudantes vão alugar os quartos? ");
         int[] quartos = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -161,6 +170,68 @@ public class App {
         
 
         sc.close();
+    }
+
+    public static void NumerosPares(){
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Quantos números você vai digitar? ");
+        int input = sc.nextInt();
+        NumberVector[] vect = new NumberVector[input];
+
+        for (int i = 0; i < vect.length; i++) {
+            System.out.println("Digite um número: ");
+            int value = sc.nextInt();
+            vect[i] = new NumberVector(value);
+        }
+
+        int pares = 0;
+        System.out.println("\nNúmeros pares: ");
+
+        for (int i = 0; i < vect.length; i++) {
+            int value = vect[i].getValue();  
+        
+            if (value %2 == 0) {
+                System.out.printf("%d  ", value);
+                pares++;
+            }
+        }
+        
+        System.out.println("\nQuantidade de pares: ");
+        System.out.printf("%d", pares);
+
+        sc.close();
+    }
+
+    public static void Aprovados(){
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Quanto alunos serão avaliados? ");
+        int input = sc.nextInt();
+        Aluno[] aluno = new Aluno[input];
+        
+        for (int i = 0; i < aluno.length; i++) {
+            System.out.println("\nDigite o nome, primeira e segunda nota do aluno: ");
+            sc.nextLine();
+            String nome = sc.nextLine();
+            double nota1 = sc.nextDouble();
+            double nota2 = sc.nextDouble();
+            double nota = (nota1 + nota2) / 2;
+            aluno[i] = new Aluno(nome, nota);
+            System.out.println(aluno[i].toString());
+        }
+
+        System.out.println("\nAlunos aprovados: ");
+        for (int i = 0; i < aluno.length; i++) {
+            String nome = aluno[i].getNome();
+            if (aluno[i].getNota() >= 6.0){
+                System.out.println(nome);
+            } 
+        }
+        
+
+        sc.close();
+
     }
 
 }

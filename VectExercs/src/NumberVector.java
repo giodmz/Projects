@@ -11,6 +11,10 @@ public class NumberVector {
         this.valueDb = valueDb;
     }
 
+    public NumberVector(int value){
+        this.value = value;
+    }
+
     public int getValue() {
         return value;
     }
