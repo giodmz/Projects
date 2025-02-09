@@ -1,3 +1,4 @@
+package entities;
 public class Aluno {
     private String nome;
     private double nota;

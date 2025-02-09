@@ -1,3 +1,4 @@
+package entities;
 public class Pessoas {
     private String nome;
     private int idade;

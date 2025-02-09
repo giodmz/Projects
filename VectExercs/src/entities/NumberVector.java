@@ -1,3 +1,4 @@
+package entities;
 public class NumberVector {
     private int value;
     private double valueDb;

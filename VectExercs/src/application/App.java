@@ -1,5 +1,11 @@
+package application;
 import java.util.Locale;
 import java.util.Scanner;
+
+import entities.Aluguel;
+import entities.Aluno;
+import entities.NumberVector;
+import entities.Pessoas;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -14,6 +20,7 @@ public class App {
         System.out.println("4 - Pensionato");
         System.out.println("5 - Números pares");
         System.out.println("6 - Aprovados");
+        System.out.println("7 - Soma de vetores");
         int input = sc.nextInt();
         switch (input) {
             case 1:
@@ -33,6 +40,8 @@ public class App {
                 break;
             case 6:
                 Aprovados();
+            case 7:
+                SomaVetores();
                 break;
 
             default: System.out.println("Tente um número válido");
@@ -232,6 +241,47 @@ public class App {
 
         sc.close();
 
+    }
+
+    public static void SomaVetores(){
+        Scanner sc = new Scanner(System.in);
+        
+        int input;
+
+        System.out.println("Quantos valores cada vetor terá? ");
+        input = sc.nextInt();
+        
+        int[] a = new int[input];
+        int[] b = new int[input];
+        int[] c = new int[input];
+        
+        
+        System.out.println("Digite os valores do vetor A: ");
+        for (int i = 0; i < input; i++) {
+            a[i] = sc.nextInt(); 
+        }
+        
+        
+        System.out.println("Digite os valores do vetor B: ");
+        for (int i = 0; i < input; i++) {
+            b[i] = sc.nextInt(); 
+        }
+
+        
+        System.out.println("Digite os valores do vetor A: ");
+        for (int i = 0; i < input; i++) {
+            c[i] = a[i] + b[i]; 
+        }
+
+        System.out.println("Vetor resultante: ");
+
+        for (int i = 0; i < input; i++) {
+            System.out.printf("%d\n", c[i]);
+        }
+        
+
+        
+        sc.close();
     }
 
 }
