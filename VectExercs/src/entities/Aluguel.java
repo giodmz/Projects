@@ -1,15 +1,12 @@
 package entities;
-import java.util.Arrays;
 
 public class Aluguel {
     private String nome;
     private String email;
-    private int[] quarto;
 
-    public Aluguel(String nome, String email, int[] quarto) {
+    public Aluguel(String nome, String email) {
         this.nome = nome;
         this.email = email;
-        this.quarto = quarto;
     }
     
     public String getNome() {
@@ -24,16 +21,11 @@ public class Aluguel {
     public void setEmail(String email) {
         this.email = email;
     }
-    public int[] getQuarto() {
-        return quarto;
-    }
-    public void setQuarto(int[] quarto) {
-        this.quarto = quarto;
-    }
+   
 
     @Override
     public String toString() {
-        return "Aluguel \nnome: " + nome + ", email: " + email + ", quarto: " + Arrays.toString(quarto);
+        return "Nome: " + nome + ", E-mail: " + email;
     }
 
     

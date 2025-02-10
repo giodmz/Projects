@@ -119,11 +119,12 @@ public class App {
         Pessoas[] pessoas = new Pessoas[input];
 
         for (int i = 0; i < pessoas.length; i++) {
-            System.out.println("\nNome: ");
+            System.out.println("\nDados da " + (i + 1) +"a pessoa");
+            System.out.print("Nome: ");
             String nome = sc.next();
-            System.out.println("\nIdade: ");
+            System.out.print("Idade: ");
             int idade = sc.nextInt();
-            System.out.println("\nAltura: ");
+            System.out.print("Altura: ");
             double altura = sc.nextDouble();
             pessoas[i] = new Pessoas(nome, idade, altura);
         }
@@ -134,6 +135,7 @@ public class App {
         }
         double avg = sum / pessoas.length;
 
+        System.out.println("Informações: ");
         System.out.printf("\nAltura média: %.2f%n", avg);
 
         int idadePessoas = 0;
@@ -148,7 +150,7 @@ public class App {
 
         for (int i = 0; i < pessoas.length; i++) {
             if(pessoas[i].getIdade() < 16) {
-                System.out.println(pessoas[i].getNome());
+                System.out.println("- " + pessoas[i].getNome());
             }
         }
 
@@ -161,20 +163,29 @@ public class App {
         
         Scanner sc = new Scanner(System.in);
         System.out.println("Quantos estudantes vão alugar os quartos? ");
-        int[] quartos = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int input = sc.nextInt();
 
-        Aluguel[] aluguel = new Aluguel[input];
+        Aluguel[] aluguel = new Aluguel[10];
 
-        for (int i = 0; i < aluguel.length; i++) {
+        for (int i = 0; i < input; i++) {
+            System.out.println("\nEstudante #" + (i + 1) + ":");
             System.out.println("Digite seu nome: ");
             String nome = sc.next();
             System.out.println("Digite seu e-mail: ");
+            sc.next();
             String email = sc.next();
             System.out.println("Digite qual quarto deseja alugar (1 a 10)");
-            quartos[i] = sc.nextInt();
-            aluguel[i] = new Aluguel(nome, email, quartos);
-            System.out.println(aluguel[i].toString());
+            int numeroQuarto = sc.nextInt();
+            // atribui o objeto para a opção 'numeroQuarto'
+            aluguel[numeroQuarto] = new Aluguel(nome, email);
+        }
+
+        System.out.println();
+        System.out.println("Quartos ocupados: ");
+        for (int i = 0; i < 10; i++) {
+            if (aluguel[i] != null) {
+                System.out.println(i + ": " + aluguel[i]);
+            }
         }
         
 
