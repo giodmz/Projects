@@ -2,16 +2,14 @@ package entities;
 
 import entities.enums.Color;
 
-public class Shape {
+public abstract class Shape {
 
     private Color color;
     
-    public double area(){
-        return 0.0;
-    }
+    public abstract double area();
 
     public Shape(){
-        
+
     }
 
     public Shape(Color color) {

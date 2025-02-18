@@ -8,6 +8,8 @@ import java.util.Scanner;
 import entities.Circle;
 import entities.Rectangle;
 import entities.Shape;
+import entities.enums.Color;
+
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -25,7 +27,7 @@ public class App {
             char key = sc.next().charAt(0);
             if (key == 'r') {
                 System.out.print("Color (BLACK/BLUE/RED): ");
-                entities.enums.Color color = entities.enums.Color.valueOf(sc.next());
+                Color color = Color.valueOf(sc.next());
                 System.out.print("Width: ");
                 double width = sc.nextDouble();
                 System.out.print("Height: ");
@@ -34,16 +36,17 @@ public class App {
             }
             if (key == 'c'){
                 System.out.print("Color (BLACK/BLUE/RED): ");
-                entities.enums.Color color = entities.enums.Color.valueOf(sc.next());
+                Color color = Color.valueOf(sc.next());
                 System.out.print("Radius: ");
                 double radius = sc.nextDouble();
                 shapes.add(new Circle(color, radius));
             }
         }
 
-        System.out.println("SHAPE AREAS: ");
+        System.out.println("SHAPE DATA: ");
         for (Shape shape : shapes){
-            System.out.printf("%.2f%n", shape.area());
+            System.out.printf("Area: %.2f%n", shape.area());
+            System.out.println("Color: " + shape.getColor());
         }
 
         sc.close();
