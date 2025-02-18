@@ -1,5 +1,8 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import entities.Account;
 import entities.BusinessAccount;
 import entities.SavingsAccount;
@@ -7,29 +10,43 @@ import entities.SavingsAccount;
 public class App {
     public static void main(String[] args) throws Exception {
         
-        Account acc = new Account(1, "Celo", 0);
-        BusinessAccount bacc = new BusinessAccount(2, "Cai", 0.0, 500.0);
+        List<Account> list = new ArrayList<>();
 
         // UPCASTING
-        Account acc1 = bacc;
-        Account acc2 = new BusinessAccount(3, "Bob", 0, 200.0);
-        Account acc3 = new SavingsAccount(4, "Maria", 0.0, 0.01);
 
+        list.add(new BusinessAccount(3, "Bob", 500.00, 500.00));
+        list.add(new SavingsAccount(77, "Ana", 1000.00, 0.02));
+        list.add(new BusinessAccount(42, "Celo", 400.00, 700.00));
+        list.add(new SavingsAccount(76, "Mendi", 500.00, 0.01));
+
+        double sum = 0.0;
+        for (Account account: list){
+            sum += account.getBalance();
+        }
+
+        System.out.printf("Total balance: %.2f%n", sum);
+
+        for (Account account : list){
+            account.deposit(10.0);
+        }
+        for (Account account : list){
+            System.out.printf("Updated balance: %d: %.2f%n", account.getNumber(), account.getBalance());
+        }
 
         // DOWNCASTING
-        BusinessAccount acc4 = (BusinessAccount)acc2;
-        acc4.loan(100.0);
+        // BusinessAccount acc4 = (BusinessAccount)acc2;
+        // acc4.loan(100.0);
 
         
         // TESTS
-        Account x = new Account(111, "Astarion", 1000.0);
-        Account y = new SavingsAccount(777, "Shadowheart", 1000.0, 0.01);
+        // Account x = new Account(111, "Astarion", 1000.0);
+        // Account y = new SavingsAccount(777, "Shadowheart", 1000.0, 0.01);
 
-        x.withdraw(50.0);
-        y.withdraw(50.0);
+        // x.withdraw(50.0);
+        // y.withdraw(50.0);
         
-        System.out.println(x.getBalance());
-        System.out.println(y.getBalance());
+        // System.out.println(x.getBalance());
+        // System.out.println(y.getBalance());
 
 
 
