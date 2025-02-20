@@ -1,21 +1,23 @@
 package entities;
 
+import entities.exceptions.DomainException;
+
 public class Account {
 
     private int number;
     private String holder;
     private double balance;
-    private double withdrwaLimit;
+    private double withdrawLimit;
 
     public Account(){
 
     }
 
-    public Account(int number, String holder, double balance, double withdrwaLimit) {
+    public Account(int number, String holder, double balance, double withdrawLimit) {
         this.number = number;
         this.holder = holder;
         this.balance = balance;
-        this.withdrwaLimit = withdrwaLimit;
+        this.withdrawLimit = withdrawLimit;
     }
 
     public int getNumber() {
@@ -38,16 +40,23 @@ public class Account {
         return balance;
     }
 
-    public double getWithdrwaLimit() {
-        return withdrwaLimit;
+    public double getWithdrawLimit() {
+        return withdrawLimit;
     }
 
     public void deposit(double amount){
         balance += amount;
     }
 
-    public void withdraw(double amount){
-        balance -= amount;
+    public void withdraw(double amount) throws DomainException{
+        if (amount > withdrawLimit) {
+            throw new DomainException("Insuficient limit");
+        }
+        
+        if (amount > balance) {
+            throw new DomainException("Insuficient balance ");
+        }
+         balance -= amount;
     }
 
     

@@ -4,6 +4,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Account;
+import entities.exceptions.DomainException;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -11,6 +12,7 @@ public class App {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
+        try {
         System.out.println("Enter account data: ");
         System.out.print("Number: ");
         int number = sc.nextInt();
@@ -29,6 +31,9 @@ public class App {
 
         System.out.println("New balance: " + account.getBalance());
         
+    } catch (DomainException ex) {
+        System.out.println(ex.getMessage());
+    }
         sc.close();
     }
 }
