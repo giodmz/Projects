@@ -12,7 +12,6 @@ public class App {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        try {
         System.out.println("Enter account data: ");
         System.out.print("Number: ");
         int number = sc.nextInt();
@@ -27,13 +26,14 @@ public class App {
 
         System.out.println("\nEnter amount for withdraw: ");
         double amount = sc.nextDouble();
-        account.withdraw(amount);
 
+        try {
+        account.withdraw(amount);
         System.out.println("New balance: " + account.getBalance());
         
-    } catch (DomainException ex) {
-        System.out.println(ex.getMessage());
-    }
-        sc.close();
-    }
+        } catch (DomainException ex) {
+            System.out.println(ex.getMessage());
+        }
+            sc.close();
+        }
 }
