@@ -4,10 +4,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
         
+        Scanner sc = new Scanner(System.in);
         
         // File file = new File("C:\\Projects\\FileReader\\lib\\file.txt");
 
@@ -50,6 +52,33 @@ public class App {
         }   catch (IOException ex){
             ex.printStackTrace();
         }
+
+
+        // ler as pastas, similar ao (dir do cmd)
+        System.out.println("Enter a folder path: ");
+        String strPath = sc.nextLine();
+
+        File path2 = new File(strPath);
+
+        File[] folders = path2.listFiles(File::isDirectory);
+        System.out.println("Folders: ");
+        for (File folder : folders){
+            System.out.println(folder);
+        }
+
+        // ler os arquivos
+        File[] files = path2.listFiles(File::isFile);
+        System.out.println("Files: ");
+        for (File file : files) {
+            System.out.println(files);
+        }
+
+        // criar subpasta
+        boolean success = new File(strPath + "\\subdir").mkdir();
+        System.out.println("Directory createad " + success);
+
+
+        sc.close();
 
     }
 }
