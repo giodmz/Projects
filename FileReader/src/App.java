@@ -10,9 +10,6 @@ public class App {
         File file = new File("C:\\Projects\\FileReader\\lib\\file.txt");
 
         String path = "C:\\Projects\\FileReader\\lib\\file.txt";
-        FileReader fr = null;
-        BufferedReader br = null;
-
 
         // Scanner sc = null;
         // try {
@@ -26,9 +23,7 @@ public class App {
         //     sc.close();
         // }
         
-        try {
-            fr = new FileReader(path);
-            br = new BufferedReader(fr);
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
             String line = br.readLine();
 
@@ -39,21 +34,7 @@ public class App {
         }
         catch (IOException ex) {
             System.out.println("Error: " + ex.getMessage());
-        } finally {
-            try{
-
-                if(br != null) {
-                    br.close();
-                }
-                if (fr != null) {
-                    fr.close();
-                }
-            }
-            catch(IOException ex) {
-                ex.printStackTrace();
-            }
-            }
-
+        } 
 
     }
 }
