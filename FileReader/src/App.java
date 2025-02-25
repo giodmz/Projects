@@ -77,6 +77,12 @@ public class App {
         boolean success = new File(strPath + "\\subdir").mkdir();
         System.out.println("Directory createad " + success);
 
+        // pega o nome do arquivo
+        System.out.println("getName: " + path2.getName());
+        // pega o caminho do arquivo ignorando o proprio
+        System.out.println("getParent: " + path2.getParent());
+        // pega o caminho completo
+        System.out.println("getPath: " + path2.getPath());
 
         sc.close();
 
