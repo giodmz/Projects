@@ -20,6 +20,7 @@ public class App {
         Scanner sc = null;
 
 
+        // show .csv data
         try{
             sc = new Scanner(productRead);
             while (sc.hasNextLine()){
