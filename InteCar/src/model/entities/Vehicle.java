@@ -1,4 +1,4 @@
-package entities.model;
+package model.entities;
 
 public class Vehicle {
     private String model;
