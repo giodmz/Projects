@@ -26,9 +26,9 @@ public class App {
 
         CarRental car = new CarRental(start, finish, new Vehicle(carModel));
 
-        System.out.print("Entre com o preoço por hora: ");
+        System.out.print("Entre com o preço por hora: ");
         double pricePerHour = sc.nextDouble();
-        System.out.print("Entre com o preoço por dia: ");
+        System.out.print("Entre com o preço por dia: ");
         double pricePerDay = sc.nextDouble();
 
         RentalService rentalService = new RentalService(pricePerDay, pricePerHour, new BrazilTaxService());
