@@ -3,6 +3,7 @@ package application;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -18,6 +19,9 @@ public class App {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
+        ArrayList<Installment> installmentsList = new ArrayList<Installment>();
+
+
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         System.out.println("Insira os dados do contrato: ");
@@ -29,21 +33,20 @@ public class App {
         System.out.print("Valor do contrato: ");
         double totalValue = sc.nextDouble();
         System.out.print("Insira o número de parcelas: ");
-        int installments = sc.nextInt();
-
+        Integer months = sc.nextInt(); 
         
+
+
         Installment installment = new Installment(date, totalValue);
-        Contract contract = new Contract(number, date, totalValue, installment, new PaypalService());
+        ContractService contractService = new ContractService(new PaypalService());
+        Contract contract = new Contract(number, date, totalValue);
 
-        // ContractService.processContract(contract, installments);
+        contractService.processContract(contract, months);
+
+        
+        System.out.println(contract.getInstallments().toString());
         
         
-
-        for (int i = 0; i < installments; i++) {
-            System.out.println(installment.toString());
-        }
-
-
         sc.close();
     }
 }

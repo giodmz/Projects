@@ -1,9 +1,8 @@
 package entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
-import services.ContractService;
-import services.OnlinePaymentService;
 
 public class Contract {
 
@@ -11,17 +10,15 @@ public class Contract {
     private LocalDateTime date;
     private Double totalValue;
 
-    private OnlinePaymentService onlinePaymentService;
-    private Installment installment;
+    ArrayList<Installment> installments = new ArrayList<Installment>();
 
-
-    public Contract(Integer number, LocalDateTime date, Double totalValue, Installment installment, OnlinePaymentService onlinePaymentService) {
+    public Contract(Integer number, LocalDateTime date, Double totalValue) {
         this.number = number;
         this.date = date;
         this.totalValue = totalValue;
-        this.installment = installment;
-        this.onlinePaymentService = onlinePaymentService;
     }
+
+    
 
     public Integer getNumber() {
         return number;
@@ -47,12 +44,13 @@ public class Contract {
         this.totalValue = totalValue;
     }
 
-    public Installment getInstallment() {
-        return installment;
+    public ArrayList<Installment> getInstallments() {
+        return installments;
     }
 
-    public void setInstallment(Installment installment) {
-        this.installment = installment;
-    }    
-
+    public void setInstallments(ArrayList<Installment> installments) {
+        this.installments = installments;
+    }
+    
+    
 }

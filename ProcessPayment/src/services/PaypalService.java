@@ -2,16 +2,17 @@ package services;
 
 public class PaypalService implements OnlinePaymentService {
 
+    private static final double PAYMENT_FEE_PERCENTAGE = 0.02;
+    private static final double MONTHLY_INTEREST = 0.01;
+
     public Double paymentFee(Double amount){
-        amount += amount * 0.2;
-        return amount;
+        return amount * PAYMENT_FEE_PERCENTAGE;
+
     }
 
     public Double interest(Double amount, Integer months){
-        for (int i = 0; i < months; i++) {
-            amount += amount * 0.1;
-        }
-        return amount;
+        return amount * months * MONTHLY_INTEREST;
+        
     }
 
     
