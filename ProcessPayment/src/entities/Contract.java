@@ -15,6 +15,10 @@ public class Contract {
 
      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
+     public Contract(){
+        
+     }
+
 
     public Contract(Integer number, LocalDateTime date, Double totalValue) {
         this.number = number;

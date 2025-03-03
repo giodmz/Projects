@@ -29,7 +29,8 @@ public class App {
         double totalValue = sc.nextDouble();
         System.out.print("Insira o número de parcelas: ");
         Integer months = sc.nextInt(); 
-        
+    
+
         ContractService contractService = new ContractService(new PaypalService());
         Contract contract = new Contract(number, date, totalValue);
 
@@ -44,4 +45,6 @@ public class App {
         
         sc.close();
     }
+
+    
 }

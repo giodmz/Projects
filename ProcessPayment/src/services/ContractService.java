@@ -15,6 +15,7 @@ public class ContractService {
 
     public void processContract(Contract contract, Integer months){
         double basicQuota = contract.getTotalValue() / months;
+        
         for (int i = 1; i <= months; i++) {
         LocalDateTime dueDate = contract.getDate().plusMonths(i);
         double interest = onlinePaymentService.interest(basicQuota, i);
