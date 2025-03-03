@@ -1,6 +1,5 @@
 package services;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import entities.Contract;

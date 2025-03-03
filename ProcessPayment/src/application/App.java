@@ -3,14 +3,11 @@ package application;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Contract;
-import entities.Installment;
 import services.ContractService;
-import services.OnlinePaymentService;
 import services.PaypalService;
 
 public class App {
@@ -18,9 +15,6 @@ public class App {
         
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-
-        ArrayList<Installment> installmentsList = new ArrayList<Installment>();
-
 
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -35,9 +29,6 @@ public class App {
         System.out.print("Insira o número de parcelas: ");
         Integer months = sc.nextInt(); 
         
-
-
-        Installment installment = new Installment(date, totalValue);
         ContractService contractService = new ContractService(new PaypalService());
         Contract contract = new Contract(number, date, totalValue);
 
