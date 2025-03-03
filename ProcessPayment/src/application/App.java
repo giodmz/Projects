@@ -35,9 +35,10 @@ public class App {
 
         contractService.processContract(contract, months);
 
-        System.out.println("\nParcelas: ");
+        System.out.println("\nID: " + contract.getNumber() + " (Valor total: " + String.format("%.2f", contract.getTotalValue())+ "$)");
+        System.out.println("Parcelas: ");
         for (Installment installment : contract.getInstallments()) {
-        System.out.println(formatter.format(date) + " - " + String.format("%.2f", installment.getAmount()));
+        System.out.println(formatter.format(installment.getDate()) + " - " + String.format("%.2f", installment.getAmount()) + "$");
         }
         
         
