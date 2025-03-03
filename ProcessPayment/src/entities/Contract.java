@@ -1,6 +1,7 @@
 package entities;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
@@ -11,6 +12,9 @@ public class Contract {
     private Double totalValue;
 
     ArrayList<Installment> installments = new ArrayList<Installment>();
+
+     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
 
     public Contract(Integer number, LocalDateTime date, Double totalValue) {
         this.number = number;
@@ -47,10 +51,7 @@ public class Contract {
     public ArrayList<Installment> getInstallments() {
         return installments;
     }
-
-    public void setInstallments(ArrayList<Installment> installments) {
-        this.installments = installments;
-    }
+    
     
     
 }

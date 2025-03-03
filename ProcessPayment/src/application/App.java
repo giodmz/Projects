@@ -7,6 +7,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Contract;
+import entities.Installment;
 import services.ContractService;
 import services.PaypalService;
 
@@ -34,8 +35,10 @@ public class App {
 
         contractService.processContract(contract, months);
 
-        
-        System.out.println(contract.getInstallments().toString());
+        System.out.println("\nParcelas: ");
+        for (Installment installment : contract.getInstallments()) {
+        System.out.println(formatter.format(date) + " - " + String.format("%.2f", installment.getAmount()));
+        }
         
         
         sc.close();
