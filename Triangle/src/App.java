@@ -6,7 +6,7 @@ public class App {
         
         Locale.setDefault(Locale.US);
 
-        System.out.println("Witch geometry form do you want calculate?");
+        System.out.println("Which geometry form do you want calculate?");
         System.out.println("1 - Triangle");
         System.out.println("2 - Square");
         System.out.println("3 - Rectangle");

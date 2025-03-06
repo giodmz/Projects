@@ -1,5 +1,5 @@
 
-public class Triangle {
+public class Triangle implements Shape {
 
     public double a;
     public double b;
