@@ -1,4 +1,4 @@
-package entities;
+package entities.enums;
 
 public enum TypeMovie {
 
@@ -6,6 +6,7 @@ public enum TypeMovie {
     COMEDY,
     ACTION,
     WHATEVER,
-    MUSICAL;
+    MUSICAL,
+    FICTION;
 
 }
