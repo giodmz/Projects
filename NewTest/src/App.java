@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,6 +30,9 @@ public class App {
         int input = sc.nextInt();
 
         switch (input) {
+            case 1:
+                movieSearch();
+                break;
             case 2:
                 addAMovie();
                 break;
@@ -42,6 +47,28 @@ public class App {
         sc.close();
         
     }
+
+    public static void movieSearch(){
+        System.out.println("Catalog: ");
+        String path = "C:\\Projects\\NewTest\\lib\\movies.csv";
+
+        try(BufferedReader br = new BufferedReader(new FileReader(path))){
+            String line = br.readLine();
+
+            while (line != null) {
+                String[] fields = line.split(",");
+                String movieName = fields[0];
+                String movieGenre = fields[1];
+                
+                System.out.println("Movie: " + movieName
+                + " - Genre: " + movieGenre);
+                line = br.readLine();
+            }
+        } catch (IOException ex) {
+            ex.getMessage();
+        }
+    }
+
 
     public static void addAMovie(){
 
