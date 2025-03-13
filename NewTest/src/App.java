@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
@@ -25,6 +28,9 @@ public class App {
         int input = sc.nextInt();
 
         switch (input) {
+            case 2:
+                addAMovie();
+                break;
             case 3:
                 buyATicket();
                 break;
@@ -35,6 +41,26 @@ public class App {
 
         sc.close();
         
+    }
+
+    public static void addAMovie(){
+
+        Scanner sc = new Scanner(System.in);
+        String path = "C:\\Projects\\NewTest\\lib\\movies.csv";
+        System.out.println("Film name: ");
+        String lines = sc.next();
+        System.out.println("Film genre: ");
+        String genre = sc.next();
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
+            bw.newLine();
+            bw.write(lines);
+            bw.write("," + genre);
+        } catch (IOException ex) {
+            ex.getMessage();
+        }
+
+        sc.close();
     }
 
     
