@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.TreeMap;
 
-import entities.Candidate;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -15,42 +13,32 @@ public class App {
         System.out.println("Enter the file full path: ");
         String path = "C:\\Projects\\Vows\\lib\\candidates.csv";
         // String path = sc.nextLine();
-
+        
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line = br.readLine();
             
-            Map<String, Integer> Ellections = new HashMap<>();
+            Map<String, Integer> ellections = new HashMap<>();
 
             while (line != null) {
 
+                // separa no .csv as partes do arquivo pela ,
                 String[] fields = line.split(",");
                 String candidateName = fields[0];
-                Integer candidateVows = Integer.parseInt(fields[1]);
+                Integer candidateVows = Integer.parseInt(fields[1].trim()); 
 
-                Ellections.put(candidateName, candidateVows);
-                
-                Candidate candidates = new Candidate(candidateName, candidateVows);
-                
-                
-
-
-                System.out.println("Candidate: " + candidates.getName());
+                // soma os votos utilizando de base o hashcode do nome 
+                ellections.put(candidateName, ellections.getOrDefault(candidateName, 0) + candidateVows);
                 line = br.readLine();
-
-                System.out.println("All candidates:");
-                for (Map.Entry<String, Integer> entry : Ellections.entrySet()) {
-                System.out.println(entry.getKey() + ": " + entry.getValue());
-    }
             }
-
+            
+            System.out.println("\nAll candidates:");
+            for (Map.Entry<String, Integer> entry : ellections.entrySet()) {
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
 
         } catch (IOException ex) {
             ex.getMessage();
         }
-
-
-        Map<String, Integer> Candidates = new HashMap<>();
-
 
         sc.close();
     }
