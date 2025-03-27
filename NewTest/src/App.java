@@ -94,6 +94,8 @@ public class App {
     public static void buyATicket(){
 
             ArrayList<Movie> movie = new ArrayList<Movie>();
+
+
             Ticket ticket1 = new Ticket(20.00);
             Ticket ticket2 = new Ticket(25.00);
             Ticket ticket3 = new Ticket(15.00);
