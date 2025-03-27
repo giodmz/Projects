@@ -6,9 +6,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 import entities.Movie;
 import entities.Ticket;
@@ -124,13 +126,25 @@ public class App {
         Ticket ticket1 = new Ticket(20.00);
         Ticket ticket2 = new Ticket(25.00);
         Ticket ticket3 = new Ticket(15.00);
+        Ticket ticket4 = new Ticket(9.00);
         Movie movie1 = new Movie("Star Wars", TypeMovie.FICTION, ticket1);
         Movie movie2 = new Movie("Zootopia", TypeMovie.FICTION, ticket2);
         Movie movie3 = new Movie("Hobbit", TypeMovie.FICTION, ticket3);
+        Movie movie4 = new Movie("Avengers", TypeMovie.FICTION, ticket4);
+
 
         movie.add(movie1);
         movie.add(movie2);
         movie.add(movie3);
+        movie.add(movie4);
+
+        //predicate
+        double min = 9.00;
+        movie.removeIf(m -> m.getTicket().getPrice() <= min);
+
+        //consumer
+        double priceUpdt = 1.2;
+        movie.forEach(m -> m.getTicket().setPrice(m.getTicket().getPrice() * priceUpdt));
 
         // ordenar os filmes em ordem alfabética utilizando o comparator
         // arrow function (->)
@@ -142,6 +156,9 @@ public class App {
 
         movie.sort((c1, c2) -> c1.getName().toUpperCase().compareTo(c2.getName().toUpperCase()));
 
+        //function
+        List<String> names = movie.stream().map(p -> p.getName().toUpperCase()).collect(Collectors.toList());
+
         Thread movieThread = new Thread(() -> {
             System.out.println("Select the movie you want to watch: ");
             for (Movie movies : movie) {
@@ -149,6 +166,7 @@ public class App {
                         + ", Genre: " + movies.getType()
                         + ", $" + movies.getTicket().getPrice());
             }
+
         });
         movieThread.start();
 
