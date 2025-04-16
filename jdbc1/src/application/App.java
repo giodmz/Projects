@@ -9,6 +9,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import db.DB;
+import db.DbException;
+import db.DbIntegrityException;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -25,6 +27,10 @@ public class App {
         try {
             conn = DB.getConnection();
             st = conn.createStatement();
+
+            // do not auto confirm operations
+            conn.setAutoCommit(false);
+
             // ps = conn.prepareStatement(
             //     "INSERT INTO seller "
             //     + "(Name, Email, BirthDate, BaseSalary, DepartmentId)"
@@ -38,17 +44,38 @@ public class App {
             // ps.setDouble(4, 3999.99);
             // ps.setInt(5, 4);
 
-            ps = conn.prepareStatement("UPDATE seller "
-                + "SET BaseSalary = BaseSalary + ? "
-                + "WHERE "
-                + "(DepartmentId = ?)");
-            ps.setDouble(1, 200.0);
-            ps.setInt(2, 2);
 
+            // update database command
+            // ps = conn.prepareStatement("UPDATE seller "
+            //     + "SET BaseSalary = BaseSalary + ? "
+            //     + "WHERE "
+            //     + "(DepartmentId = ?)");
+            // ps.setDouble(1, 200.0);
+            // ps.setInt(2, 2);
+
+            // ps = conn.prepareStatement(
+            //     "DELETE FROM department "
+            //     + "WHERE " // IMPORTANT!!
+            //     + "Id = ?");
+            // ps.setInt(1, 2);
+
+            int rows1 = st.executeUpdate("UPDATE seller SET BaseSalary = 2100 WHERE DepartmentId = 1");
+
+            // int x = 1;
+            // if (x <2) {
+            //     throw new SQLException("Error");
+            // }
+
+            int rows2 = st.executeUpdate("UPDATE seller SET BaseSalary = 3100 WHERE DepartmentId = 2");
             // update the data on database
-            int rowsAffected =  ps.executeUpdate();
 
-            System.out.println("Rows affeceted: " + rowsAffected);
+
+            // confirm transation
+            conn.commit();
+
+            // int rowsAffected =  ps.executeUpdate();
+
+            // System.out.println("Rows affeceted: " + rowsAffected);
 
             // sql command line
             rs = st.executeQuery("select * from department");
@@ -69,7 +96,15 @@ public class App {
             // }
 
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            // return transaction to the initial point
+            try {
+                conn.rollback();
+                throw new DbException("Transaction rolled back (" + ex.getMessage()
+                + ")");
+            } catch (SQLException e1) {
+                throw new DbException("Error on rollback (" + e1.getMessage() + ")");
+            }
+            // throw new DbIntegrityException(ex.getMessage());
         // } catch (ParseException ex) {
         //     ex.printStackTrace();
         } finally {
