@@ -16,7 +16,6 @@ public class Department implements Serializable{
 
     }
 
-
     public Integer getId() {
         return id;
     }
@@ -63,7 +62,4 @@ public class Department implements Serializable{
         return "Department info - ID:" + id + ", name: " + name;
     }
 
-    
-
-    
 }

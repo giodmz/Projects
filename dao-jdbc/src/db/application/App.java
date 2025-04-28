@@ -4,6 +4,8 @@ package db.application;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import db.model.dao.DaoFactory;
+import db.model.dao.SellerDao;
 import db.model.entities.Department;
 import db.model.entities.Seller;
 
@@ -15,6 +17,10 @@ public class App {
 
         String day = "21/03/2004";
         Seller sell = new Seller(2, "ca", "ha", LocalDate.parse(day, fmt), 500.0,obj);
+        
+        // o programa não conhece a sellerDao, apenas a interface
+        SellerDao sellerDao = DaoFactory.createSellerDao();
+        
         System.out.println(obj);
         System.out.println(sell);
     }
