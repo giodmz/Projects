@@ -5,6 +5,7 @@ package db.application;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Scanner;
 
 import db.model.dao.DaoFactory;
 import db.model.dao.SellerDao;
@@ -14,6 +15,8 @@ import db.model.entities.Seller;
 public class App {
     public static void main(String[] args) throws Exception {
         
+        Scanner sc = new Scanner(System.in);
+
         // o programa não conhece a sellerDao, apenas a interface
         SellerDao sellerDao = DaoFactory.createSellerDao();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -45,5 +48,19 @@ public class App {
         
         sellerDao.insert(newSeller);
         System.out.println("Inserted - new ID = " + newSeller.getId());
+        
+        System.out.println("\ntest - seller update");
+        seller = sellerDao.findById(1);
+        seller.setName("Gustavo Rocha");
+        sellerDao.update(seller);
+        System.out.println("successful update");
+
+        System.out.println("\ntest - seller delete");
+        System.out.println("Enter id for delete: ");
+        int id = sc.nextInt();
+        sellerDao.deleteById(id);
+        System.out.println("successful delete");
+
+        sc.close();
     }
 }

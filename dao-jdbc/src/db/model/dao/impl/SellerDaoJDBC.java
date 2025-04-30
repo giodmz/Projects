@@ -61,14 +61,49 @@ public class SellerDaoJDBC implements SellerDao {
 
     @Override
     public void update(Seller obj) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        PreparedStatement st = null;
+        try {
+            st = conn.prepareStatement("UPDATE seller"
+            + " SET Name=?,Email=?,BirthDate=?,BaseSalary=?,DepartmentId"
+            + " WHERE Id = ?");
+
+            st.setString(1, obj.getName());
+            st.setString(2, obj.getEmail());
+            st.setDate(3, java.sql.Date.valueOf(obj.getBirthDate()));
+            st.setDouble(4, obj.getBaseSalary());
+            st.setInt(5, obj.getDepartment().getId());
+            st.setInt(6, obj.getId());
+
+            st.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.getMessage();
+        } finally {
+            DB.closeStatement(st);
+        }
     }
 
     @Override
     public void deleteById(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+        PreparedStatement st = null;
+
+        try {
+            st = conn.prepareStatement("DELETE FROM seller"
+            + " WHERE Id = ?");
+
+            st.setInt(1, id);
+
+            int rowsAffected = st.executeUpdate();
+
+            if (rowsAffected == 0) {
+                throw new DbException("invalid id");
+            }
+
+        } catch (SQLException ex) {
+            throw new DbException(ex.getMessage());
+        } finally {
+            DB.closeStatement(st);
+        }
     }
 
     @Override
