@@ -21,6 +21,7 @@ public class App {
         // o programa não conhece a sellerDao, apenas a interface
         SellerDao sellerDao = DaoFactory.createSellerDao();
         
+        System.out.println("test - seller findById");
         Seller seller = sellerDao.findById(3);
         
         System.out.println(obj);
