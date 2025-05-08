@@ -1,3 +1,4 @@
+package com.jpa1st.application;
 import dominio.Pessoa;
 
 public class App {
