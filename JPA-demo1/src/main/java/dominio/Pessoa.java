@@ -2,9 +2,25 @@ package dominio;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+
+
+
+// Indica que a classe é um entidade que corresponde a uma tabela
+@Entity
 public class Pessoa implements Serializable {
 
+    // mapeamento para indicar que a chave vai ser gerada automaticamente pelo banco de dados
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
+
+    // muda o campo que vai ser gerada na tabela, já que por padrão ela é gerada com o mesmo nome, no caso: "nome"
+    // @Column(name="nomecompleto")
     private String nome;
     private String email;
 
