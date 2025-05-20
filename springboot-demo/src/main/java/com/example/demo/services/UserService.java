@@ -1,4 +1,4 @@
-package com.example.services;
+package com.example.demo.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,27 +6,27 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entities.Order;
-import com.example.demo.repositories.OrderRepository;
+import com.example.demo.entities.User;
+import com.example.demo.repositories.UserRepository;
 
 // registra a classe como um component do string
 // @Component
 
 @Service
-public class OrderService {
+public class UserService {
 
     // injetar dependencia do spring
     @Autowired
-    private OrderRepository repository;
+    private UserRepository repository;
 
     // repassa a chamada para o repository.findAll()
-    public List<Order> findAll() {
+    public List<User> findAll() {
         return repository.findAll();
     }
 
-    public Order findById(Long id) {
+    public User findById(Long id) {
         
-        Optional<Order> obj =  repository.findById(id);
+        Optional<User> obj =  repository.findById(id);
         return obj.get();
     }
     
