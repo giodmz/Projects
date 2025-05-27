@@ -103,6 +103,15 @@ public class Order implements Serializable {
         this.payment = payment;
     }
 
+    // soma de todos os subTotais dos itens
+    public Double getTotal(){
+        double sum = 0.0;
+        for (OrderItem o : items) {
+            sum = sum + o.getSubTotal();
+        }
+        return sum;
+    }
+
     
 
     @Override
