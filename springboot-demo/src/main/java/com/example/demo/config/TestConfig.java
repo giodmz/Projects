@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Order;
 import com.example.demo.entities.OrderItem;
+import com.example.demo.entities.Payment;
 import com.example.demo.entities.Product;
 import com.example.demo.entities.User;
 import com.example.demo.entities.enums.OrderStatus;
@@ -62,6 +63,9 @@ public class TestConfig implements CommandLineRunner {
         Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
         Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
         Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
+        
+        Payment pay1 = new Payment(null, Instant.parse("2025-08-20T15:23:31.72Z"), o1);
+        o1.setPayment(pay1);
 
         // salvar no banco de dados
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
